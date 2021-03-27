@@ -1,0 +1,12 @@
+<button bindtap="onChangeKeyBoard1" type="primary">弹出默认键盘</button>
+<button bindtap="onChangeKeyBoard2" type="primary">弹出带右侧栏的键盘</button>
+<button bindtap="onChangeKeyBoard3" type="primary">弹出身份证号键盘</button>
+<button bindtap="onChangeKeyBoard4" type="primary">弹出带标题的键盘</button>
+<button bindtap="onChangeKeyBoard5" type="primary">弹出配置多个按键的键盘</button>
+<button bindtap="onChangeKeyBoard6" disabled>双向绑定</button>
+<keyboard show="{{ show1 }}" closeButtonText="完成" bindinput="changeInput" binddelete="changeDetete" />
+<keyboard show="{{ show2 }}" title="微信小程序安全键盘" theme="custom" bindinput="changeInput" binddelete="changeDetete" />
+<keyboard show="{{ show3 }}" extraKey="{{ ['X'] }}" bindinput="changeInput" binddelete="changeDetete" />
+<keyboard show="{{ show4 }}" title="微信小程序安全键盘" bindinput="changeInput" binddelete="changeDetete" />
+<keyboard show="{{ show5 }}" themeColor="#1989fa" bindinput="changeInput" extraKey="{{ ['00', '.'] }}" theme="custom" binddelete="changeDetete" />
+<keyboard show="{{ show6 }}" bindinput="changeInput" binddelete="changeDetete" />

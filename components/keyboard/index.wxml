@@ -1,0 +1,51 @@
+<view wx:if="{{ show && modal }}" style="z-index: {{ zIndex - 1 }}" class="modal" bindtap="onClear"></view>
+<view
+  class="keyboard-container"
+  id="keyboard-container"
+  animation="{{ animationData }}"
+  style="bottom: -{{ height }}px; z-index: {{ zIndex }}"
+>
+  <view class="keyboard-header" id="keyboard-header" style="display: {{ (title || closeButtonText) ? 'flex' : 'none'}}">
+    <view class="keyboard-title">{{ title }}</view>
+    <view 
+      class="keyboard-enter"
+      hover-class="hover-class1"
+      hover-stay-time="50"
+      bindtap="onClear"
+      style="color: {{ themeColor }}"
+    >
+    {{ closeButtonText }}
+    </view>
+  </view>
+  <view class="keyboard-body" id="keyboard-body">
+    <view class="keyboard-keys">
+      <view class="keyboard-wrapper {{ theme === 'custom' && index === normaList.length - 1 ? 'custom-wrapper' : '' }} " wx:for="{{ normaList }}" wx:key="index">
+        <view 
+          class="button" 
+          hover-class="hover-class"
+          hover-stay-time="50"
+          bindtap="onChangeKeyBoard"
+          data-value="{{ item.value }}"
+        >
+          <image class="delete-icon" wx:if="{{ item.iconPath }}" src="{{ item.iconPath }}"></image>
+          <view>{{ item.name }}</view>
+        </view>
+      </view>
+    </view>
+    <view class="keyboard-sidebar" wx:if="{{ theme === 'custom' }}">
+      <view class="keyboard-wrapper" wx:for="{{ rightKeyboardList }}" wx:key="index">
+        <view 
+          class="button right-keyboard-slider"
+          hover-class="{{ item.value === 'enter' ? 'hover-class2' : 'hover-class' }}" 
+          hover-stay-time="50" 
+          style="background-color: {{ item.value === 'enter' ? themeColor : '#fff' }};color: {{ item.value === 'enter' ? '#fff' : '#323233' }}"
+          data-value="{{ item.value }}"
+          bindtap="onChangeKeyBoard"
+        >
+          <image class="delete-icon" wx:if="{{ item.value === 'delete' }}" src="{{ item.iconPath }}"></image>
+          <view>{{ item.name }}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,92 @@
+.keyboard-container{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2002;
+  background-color: #f2f3f5;
+  padding-bottom: 44rpx;
+  margin-top: 20rpx;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, .2);
+}
+.keyboard-body{
+  display: flex;
+  padding: 12rpx 0 0 12rpx;
+}
+.keyboard-keys{
+  display: flex;
+  flex: 3;
+  flex-wrap: wrap;
+}
+.keyboard-wrapper{
+  position: relative;
+  flex: 1;
+  flex-basis: 33%;
+  height: 96rpx;
+  box-sizing: border-box;
+  padding: 0 12rpx 12rpx 0;
+  line-height: 96rpx;
+}
+.keyboard-wrapper .button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #323233;
+  border-color: #fff;
+  border-radius: 16rpx;
+  background-color: #fff;
+  font-size: 48rpx;
+  text-align: center;
+  line-height: 1.5;
+}
+.keyboard-header{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 68rpx;
+}
+.keyboard-title{
+  color: #C0C4CC;
+  font-size: 32rpx;
+}
+.keyboard-enter{
+  position: absolute;
+  right: 0;
+  padding: 0 32rpx;
+  color: #F08437;
+}
+.keyboard-sidebar{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.delete-icon{
+  width: 64rpx;
+  height: 44rpx;
+}
+.right-keyboard-slider{
+  height: 100% !important;
+  font-size: 34rpx !important;
+}
+.hover-class{
+  border-color: rgba(242, 246, 252, .5) !important;
+  background-color: rgba(242, 246, 252, .5) !important;
+}
+.hover-class1{
+  color: rgba(240, 132, 55, .7) !important;
+}
+.hover-class2{
+  opacity: 0.8;
+}
+.custom-wrapper{
+  flex: 0 0 33% !important;
+}
+.modal{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
