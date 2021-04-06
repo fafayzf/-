@@ -1,0 +1,54 @@
+var filterCss = function (val) {
+  var spaceV = '', fontS = ''
+  switch (val) {
+    case 'case': case 'delete':
+      spaceV = 'fb-15'
+      fontS = 'fs-20'
+      break
+    case '123': case 'symbol':
+      spaceV = 'fb-20'
+      fontS = 'fs-20'
+      break
+    case 'spacing':
+      spaceV = 'fb-50'
+      fontS = 'fs-20'
+      break
+    case 'abc':
+      fontS = 'fs-18'
+  }
+  return [ spaceV, fontS ]
+}
+var filterBg = function (val) {
+  var list = ['case', 'delete', '123', 'symbol', 'abc']
+  var status = list.some(function (item) {
+    return item === val
+  })
+  if (status) {
+    return [ 'bg-c' ]
+  }
+}
+var filterSymbolKeyboard = function (val) {
+  if (val === '@' || val === 'delete') {
+    return ['fb-22']
+  }
+  if (val === '+') {
+    return ['fb-16-ml-6']
+  }
+  if (val === '#') {
+    return ['fb-16-mr-6']
+  }
+  if (val === 'abc') {
+    return ['fb-20']
+  }
+  if (val === 'spacing') {
+    return ['fb-48']
+  }
+  if (val === '123' || val === '.' || val === 'spacing' || val === 'abc') {
+    return ['h-79']
+  }
+}
+module.exports = {
+  filterCss: filterCss,
+  filterBg: filterBg,
+  filterSymbolKeyboard: filterSymbolKeyboard
+}

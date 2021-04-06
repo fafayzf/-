@@ -28,9 +28,6 @@
   line-height: 96rpx;
 }
 .keyboard-wrapper .button{
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100%;
   color: #323233;
   border-color: #fff;
@@ -38,16 +35,14 @@
   background-color: #fff;
   font-size: 48rpx;
   text-align: center;
-  line-height: 1.5;
+  line-height: 2;
 }
 .keyboard-header{
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 68rpx;
 }
 .keyboard-title{
+
   color: #C0C4CC;
   font-size: 32rpx;
 }
@@ -66,6 +61,10 @@
   width: 64rpx;
   height: 44rpx;
 }
+.delete-icon-2{
+  width: 44rpx;
+  height: 44rpx;
+}
 .right-keyboard-slider{
   height: 100% !important;
   font-size: 34rpx !important;
@@ -73,6 +72,10 @@
 .hover-class{
   border-color: rgba(242, 246, 252, .5) !important;
   background-color: rgba(242, 246, 252, .5) !important;
+}
+.bg-c .button.hover-class{
+  border-color: rgba(222, 222, 222, .5) !important;
+  background-color: rgba(222, 222, 222, .5) !important;
 }
 .hover-class1{
   color: rgba(240, 132, 55, .7) !important;
@@ -89,4 +92,81 @@
   height: 100%;
   top: 0;
   left: 0;
+}
+.flex-enter-enter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.keyboard-letter-wrapper{
+  flex-basis: 10%;
+}
+.keyboard-letter-wrapper .button{
+  font-size: 42rpx;
+  line-height: 2;
+  border-radius: 10rpx;
+}
+.keyboard-letter-wrapper:nth-of-type(11) {
+  margin-left: 36rpx;
+}
+.keyboard-letter-wrapper:nth-of-type(19) {
+  margin-right: 36rpx;
+}
+.keyboard-symbol-wrapper{
+  flex-basis: 11%;
+}
+.keyboard-symbol-wrapper{
+  height: 77rpx;
+}
+.h-79{
+  height: 80rpx;
+}
+.ml-36{
+  margin-left: 36rpx;
+}
+.mr-36{
+  margin-right: 36rpx;
+}
+.fb-15{
+  flex-basis: 15%;
+}
+.fb-20{
+  flex-basis: 20%;
+}
+.fb-22{
+  flex-basis: 22%;
+}
+.fb-30{
+  flex-basis: 30%;
+}
+.fb-50{
+  flex-basis: 50%;
+}
+.fb-48{
+  flex-basis: 48%;
+}
+.fs-18 .button{
+  font-size: 30rpx;
+}
+.fb-16-ml-6{
+  flex-basis: 16%;
+  margin-left: 6%;
+}
+.fb-16-mr-6{
+  flex-basis: 16%;
+  margin-right: 6%;
+}
+.fs-20 .button{
+  font-size: 32rpx;
+}
+.bg-c .button {
+  background-color: #dedede !important;
+}
+.bg-f{
+  background-color: #fff !important;
+}
+.icon{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
 }

@@ -1,7 +1,8 @@
 Page({
   data: {
     show: false,
-    value: ''
+    value: '',
+    icon: '/components/keyboard/imgs/case-icon.png'
   },
   onLoad: function () {
    
@@ -35,6 +36,26 @@ Page({
   onChangeKeyBoard6: function() {
     this.setData({
       show6: true
+    })
+  },
+  onChangeKeyBoard7: function() {
+    this.setData({
+      show7: true
+    })
+  },
+  onChangeKeyBoard8: function() {
+    this.setData({
+      show8: true
+    })
+  },
+  onChangeKeyBoard9: function() {
+    this.setData({
+      show9: true
+    })
+  },
+  onChangeKeyBoard10: function() {
+    this.setData({
+      show10: true
     })
   },
   changeInput: function(e) {

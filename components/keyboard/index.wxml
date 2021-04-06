@@ -1,3 +1,4 @@
+<wxs src="./index.wxs" module="tools" />
 <view wx:if="{{ show && modal }}" style="z-index: {{ zIndex - 1 }}" class="modal" bindtap="onClear"></view>
 <view
   class="keyboard-container"
@@ -5,11 +6,11 @@
   animation="{{ animationData }}"
   style="bottom: -{{ height }}px; z-index: {{ zIndex }}"
 >
-  <view class="keyboard-header" id="keyboard-header" style="display: {{ (title || closeButtonText) ? 'flex' : 'none'}}">
-    <view class="keyboard-title">{{ title }}</view>
+  <view class="keyboard-header flex-enter-enter" id="keyboard-header" style="display: {{ (title || closeButtonText) ? 'flex' : 'none'}}">
+    <view class="keyboard-title flex-enter-enter"><image class="icon" src="{{ icon }}"></image>{{ title }}</view>
     <view 
       class="keyboard-enter"
-      hover-class="hover-class1"
+      hover-class="hover-class2"
       hover-stay-time="50"
       bindtap="onClear"
       style="color: {{ themeColor }}"
@@ -18,34 +19,84 @@
     </view>
   </view>
   <view class="keyboard-body" id="keyboard-body">
-    <view class="keyboard-keys">
-      <view class="keyboard-wrapper {{ theme === 'custom' && index === normaList.length - 1 ? 'custom-wrapper' : '' }} " wx:for="{{ normaList }}" wx:key="index">
-        <view 
-          class="button" 
-          hover-class="hover-class"
-          hover-stay-time="50"
-          bindtap="onChangeKeyBoard"
-          data-value="{{ item.value }}"
-        >
-          <image class="delete-icon" wx:if="{{ item.iconPath }}" src="{{ item.iconPath }}"></image>
-          <view>{{ item.name }}</view>
+    <!-- 数字键盘 -->
+    <block wx:if="{{ type === 'number' }}">
+      <view class="keyboard-keys">
+        <view class="keyboard-wrapper {{ theme === 'custom' && index === normaList.length - 1 ? 'custom-wrapper' : tools.filterBg(item.value) }} " wx:for="{{ normaList }}" wx:key="index">
+          <view 
+            class="button flex-enter-enter"
+            hover-class="hover-class"
+            hover-stay-time="50"
+            bindtap="onChangeKeyBoard"
+            data-value="{{ item.value }}"
+          >
+            <image class="delete-icon" mode="widthFix" wx:if="{{ item.iconPath }}" src="{{ item.iconPath }}"></image>
+            <view>{{ item.name }}</view>
+          </view>
         </view>
       </view>
-    </view>
-    <view class="keyboard-sidebar" wx:if="{{ theme === 'custom' }}">
-      <view class="keyboard-wrapper" wx:for="{{ rightKeyboardList }}" wx:key="index">
-        <view 
-          class="button right-keyboard-slider"
-          hover-class="{{ item.value === 'enter' ? 'hover-class2' : 'hover-class' }}" 
-          hover-stay-time="50" 
-          style="background-color: {{ item.value === 'enter' ? themeColor : '#fff' }};color: {{ item.value === 'enter' ? '#fff' : '#323233' }}"
-          data-value="{{ item.value }}"
-          bindtap="onChangeKeyBoard"
-        >
-          <image class="delete-icon" wx:if="{{ item.value === 'delete' }}" src="{{ item.iconPath }}"></image>
-          <view>{{ item.name }}</view>
+      <view class="keyboard-sidebar" wx:if="{{ theme === 'custom' }}">
+        <view class="keyboard-wrapper {{ tools.filterBg(item.value) }}" wx:for="{{ rightKeyboardList }}" wx:key="index">
+          <view
+            class="button right-keyboard-slider flex-enter-enter"
+            hover-class="{{ item.value === 'enter' ? 'hover-class2' : 'hover-class' }}"
+            hover-stay-time="50"
+            style="background-color: {{ item.value === 'enter' ? themeColor : '#fff' }};color: {{ item.value === 'enter' ? '#fff' : '#323233' }}"
+            data-value="{{ item.value }}"
+            bindtap="onChangeKeyBoard"
+          >
+            <image
+              wx:if="{{ item.value === 'delete' }}"
+              class="delete-icon"
+              mode="widthFix"
+              src="{{ item.iconPath }}"
+            >
+            </image>
+            <view>{{ item.name }}</view>
+          </view>
         </view>
       </view>
-    </view>
+    </block>
+    <!-- 26键 -->
+    <block wx:elif="{{ type === 'letter' }}">
+      <view class="keyboard-keys keyboard-letter">
+        <view 
+        wx:for="{{ lettersList }}" 
+        wx:key="index"
+        class="keyboard-wrapper keyboard-letter-wrapper {{ tools.filterCss(item.value) }} {{ tools.filterBg(item.value) }}"
+        >
+          <view
+            class="button flex-enter-enter"
+            hover-class="hover-class"
+            hover-stay-time="50"
+            bindtap="onChangeKeyBoard"
+            data-value="{{ item.value }}"
+          >
+            <image class="delete-icon-2" mode="widthFix" wx:if="{{ item.iconPath }}" src="{{ item.iconPath }}"></image>
+            <view>{{ item.name }}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:elif="{{ type === 'symbol' }}">
+      <view class="keyboard-keys keyboard-letter">
+        <view 
+        wx:for="{{ symbolsList }}" 
+        wx:key="index"
+        class="keyboard-wrapper keyboard-letter-wrapper keyboard-symbol-wrapper {{ tools.filterCss(item.value) }} {{ tools.filterBg(item.value) }} {{ tools.filterSymbolKeyboard(item.value) }}"
+        >
+          <view
+            class="button flex-enter-enter"
+            hover-class="hover-class"
+            hover-stay-time="50"
+            bindtap="onChangeKeyBoard"
+            data-value="{{ item.value }}"
+          >
+            <image class="delete-icon-2" mode="widthFix" wx:if="{{ item.iconPath }}" src="{{ item.iconPath }}"></image>
+            <view>{{ item.name }}</view>
+          </view>
+        </view>
+      </view>
+    </block>
   </view>
 </view>
