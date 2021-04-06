@@ -106,12 +106,6 @@
   line-height: 2;
   border-radius: 10rpx;
 }
-.keyboard-letter-wrapper:nth-of-type(11) {
-  margin-left: 36rpx;
-}
-.keyboard-letter-wrapper:nth-of-type(19) {
-  margin-right: 36rpx;
-}
 .keyboard-symbol-wrapper{
   flex-basis: 11%;
 }
