@@ -49,6 +49,8 @@
 .keyboard-enter{
   position: absolute;
   right: 0;
+  height: 100%;
+  line-height: 2;
   padding: 0 32rpx;
   color: #F08437;
 }
