@@ -1,0 +1,26 @@
+{
+  "name": "mini-keyboard",
+  "version": "1.0.0",
+  "description": "mini-keyboard",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fafayzf/mini-keyboard.git"
+  },
+  "keywords": [
+    "mini-program",
+    "keyboard",
+    "components",
+    "微信小程序",
+    "小程序"
+  ],
+  "author": "fafayzf",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fafayzf/mini-keyboard/issues"
+  },
+  "homepage": "https://github.com/fafayzf/mini-keyboard#readme"
+}
